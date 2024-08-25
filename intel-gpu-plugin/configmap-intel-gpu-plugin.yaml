@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: intel-gpu-plugin-helm-chart-value-overrides
+  namespace: intel
+data:
+  values.yaml: |-
+    name: gpudeviceplugin-sample
+
+    image:
+      hub: intel
+      tag: ""
+
+    initImage:
+      enable: false
+      hub: intel
+      tag: ""
+
+    sharedDevNum: 1
+    logLevel: 2
+    resourceManager: false
+    enableMonitoring: true
+    allocationPolicy: "none"
+
+    nodeSelector:
+      intel.feature.node.kubernetes.io/gpu: 'true'
+
+    tolerations:
+
+    nodeFeatureRule: true
